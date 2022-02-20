@@ -9,18 +9,20 @@ library(tidyverse)
 library(cowplot)
 library(patchwork)
 
-leveragem <- read_csv("leveragem.csv")
+leveragem <- read_csv("data/leveragem.csv")
 
 #### Nitrate
 
 a <- ggplot(leveragem, aes(x = Watershed_Area, y = Mean_NO3, shape = Dependence)) + 
-  geom_point(size = 2.5, alpha = 0.65) + 
+  geom_point(size = 3, alpha = 0.65) + 
   theme_cowplot() + 
   theme(legend.position="none") +
   theme(axis.title.x=element_blank()) + 
   ylab(bquote(NO[3]^" -")) + 
   ggtitle("Mean") +
   theme(plot.title = element_text(hjust = 0.5))
+
+
 
 a
 
