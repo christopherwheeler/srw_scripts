@@ -15,8 +15,6 @@ library(WaveletComp)
 library(cowplot)
 library(patchwork)
 
-setwd("C:/Users/Christopher/Desktop/R_Directory/REVISION_DATA_2022")
-
 ### List of baseflow figs
 
 #### Figure  - Map in ArcMap (ISC as gradient) - DONE!
@@ -32,7 +30,7 @@ setwd("C:/Users/Christopher/Desktop/R_Directory/REVISION_DATA_2022")
 
 rm(sr_hydro_dates)
 
-sr_hydro_dates <- read_csv("sr_hydro_dates.csv", 
+sr_hydro_dates <- read_csv("data/sr_hydro_dates.csv", 
                            col_types = cols(Date = col_date(format = "%m/%d/%Y"), 
                                             discharge = col_number(), samp = col_number()))
 
@@ -52,7 +50,7 @@ a
 
 rm(line_graph)
 
-line_graph <- read_csv("sptial_stability_line_graph.csv", 
+line_graph <- read_csv("data/sptial_stability_line_graph.csv", 
                        col_types = cols(Date = col_date(format = "%m/%d/%Y"), 
                                         spatial_stability = col_number()))
 
@@ -114,9 +112,7 @@ library(RColorBrewer)
 
 ### import base chem 
 
-setwd("C:/Users/Christopher/Desktop/R_Directory/REVISION_DATA_2022")
-
-basechem <- read_csv("basechem.csv")
+basechem <- read_csv("data/basechem.csv")
 
 ### Filter basechem for just independent sites
 
@@ -308,7 +304,7 @@ plot_grid(k, l, labels=c("A", "B"), ncol = 1, nrow = 2, scale = 1)
 ############################################################################################################################################
 ############################################################################################################################################
 
-averages <- read_csv("SRW_Solute_Averages.csv", 
+averages <- read_csv("data/SRW_Solute_Averages.csv", 
                      col_types = cols(Temp_Variance = col_number(), 
                                       Spatial_Stability = col_number(), 
                                       subcatchment_synchrony = col_number()))
