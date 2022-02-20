@@ -170,8 +170,7 @@ p <- ggplot(leveragem, aes(x = Watershed_Area, y = Mean_Na, shape = Dependence))
   theme_cowplot()+ 
   theme(legend.position="none")+ 
   ylab(bquote(Na^"+")) + 
-  xlab(bquote('Drainage Area'))
-
+  theme(axis.title.x=element_blank())
 
 q <- ggplot(leveragem, aes(x = Watershed_Area, y = Na_leverage, shape = Dependence)) + 
   geom_point(size = 2.5, alpha = 0.65) + 
@@ -193,3 +192,16 @@ ff
 
 
 aa/bb/cc/dd/ee/ff
+
+
+aa/bb/cc/dd/ee/ff +
+  plot_annotation(
+    caption = 'Subcatchment Area',
+    theme = theme(plot.caption = element_text(size = 18, hjust = 0.5), plot.caption.position = "plot")
+  )
+
+
+
+
+
+
