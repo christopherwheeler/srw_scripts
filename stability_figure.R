@@ -7,14 +7,16 @@ library(tidyverse)
 library(cowplot)
 library(patchwork)
 
-leveragem <- read_csv("leveragem.csv")
+leveragem <- read_csv("data/leveragem.csv")
 
 #### Nitrate
 
-a <- ggplot(leveragem, aes(x = Watershed_Area, y = Mean_NO3, color = Dependence)) + 
+a <- ggplot(leveragem, aes(x = Watershed_Area, y = Mean_NO3, color = Dependence, shape = Dependence)) + 
   geom_point(size = 2.5) + 
   theme_cowplot() + 
-  theme(legend.position="none")
+  theme(legend.position="none")+ scale_shape_manual(values = c(1,2)) +
+  scale_colour_brewer(palette = "Set1")
+
 
 
 b <- ggplot(leveragem, aes(x = Watershed_Area, y = NO3_leverage, color = Dependence)) + 
